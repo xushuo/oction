@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Menu} from "../../menu/menu.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-stock-msg',
@@ -8,7 +10,7 @@ import {Component, OnInit} from '@angular/core';
 export class StockMsgComponent implements OnInit {
   private stocks: Array<Stock>;
 
-  constructor() {
+  constructor(public routeInfo:Router) {
   }
 
   ngOnInit() {
@@ -22,7 +24,12 @@ export class StockMsgComponent implements OnInit {
       new Stock(7, "股票7", 7.99, 0, "不错的股票7?", ["金融", "教育"])
     ];
   }
-
+   create(){
+      this.routeInfo.navigateByUrl('/stock/0')
+   }
+   update(stock:Stock){
+     this.routeInfo.navigateByUrl('/stock/'+stock.id)
+   }
 }
 
 export class Stock {

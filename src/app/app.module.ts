@@ -11,6 +11,16 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { StockMsgComponent } from './stock/stock-msg/stock-msg.component';
 import { StarComponent } from './star/star.component';
+import {RouterModule, Routes} from "@angular/router";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { StockFormComponent } from './stock/stock-form/stock-form.component';
+
+const routeConfig:Routes = [
+  { path:'' ,redirectTo:'/dashboard',pathMatch: 'full' },
+  { path:'dashboard' ,component:DashboardComponent},
+  { path:'stock' ,component:StockMsgComponent},
+  { path:'stock/:id' ,component:StockFormComponent}
+];
 
 @NgModule({
   declarations: [
@@ -21,12 +31,15 @@ import { StarComponent } from './star/star.component';
     FooterComponent,
     ContentComponent,
     StockMsgComponent,
-    StarComponent
+    StarComponent,
+    DashboardComponent,
+    StockFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
