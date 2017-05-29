@@ -6,7 +6,7 @@
   <!-- form start -->
   <form class="form-horizontal" [formGroup]="formModel">
     <div class="box-body">
-      <div class="form-group" [class.has-error]="formModel.get('name').touched && formModel.hasError('minlength','name')||formModel.hasError('required','name')">
+      <div class="form-group" [class.has-error]="formModel.get('name').touched && (formModel.hasError('minlength','name')|| formModel.hasError('required','name'))">
         <label for="name" class="col-sm-2 control-label">股票名称</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="name" formControlName="name" placeholder="股票名称">
