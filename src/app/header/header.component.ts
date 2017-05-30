@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MsgServerService} from "./msg-server.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import {MsgServerService} from "./msg-server.service";
 export class HeaderComponent implements OnInit {
 
   msgCount:number =0;
-
+  title:string = environment.appTitle;
   constructor(public  server:MsgServerService) { }
 
   ngOnInit() {
